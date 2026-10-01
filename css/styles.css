@@ -282,6 +282,9 @@ a.contact-row:hover{ background: var(--teal-light); color: var(--teal-dark); }
 .hero-card, .profile-card{ grid-column: span 2; }
 .completion-card, .courses-card, .motivation-card, .recommend-card{ grid-column: span 1; }
 .grid-bottom{ display:grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr); gap:20px; align-items:stretch; }
+.grid-home{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:20px; align-items:stretch; }
+.grid-home .courses-card{ grid-column: span 1; }
+.grid-home .recommend-card{ grid-column: span 2; }
 
 /* ============ Hero card ============ */
 .hero-card{
@@ -490,6 +493,11 @@ a.contact-row:hover{ background: var(--teal-light); color: var(--teal-dark); }
 .stat-list__value--muted{ color: var(--text-muted); font-weight:600; }
 
 /* ============ Workplace card ============ */
+.combo-section{ padding-bottom:22px; margin-bottom:22px; border-bottom:1px solid var(--border-soft); }
+.combo-section:last-child{ padding-bottom:0; margin-bottom:0; border-bottom:none; }
+.combo-section__head{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:16px; }
+.combo-section__head h3{ font-size:14px; font-weight:800; margin:0; letter-spacing:-.01em; }
+
 .place-list{ display:flex; flex-direction:column; gap:16px; }
 .place-list li{ display:flex; align-items:flex-start; gap:12px; }
 .place-list__icon{
@@ -503,15 +511,21 @@ a.contact-row:hover{ background: var(--teal-light); color: var(--teal-dark); }
 
 /* ============ Courses card ============ */
 .course-row{
-  display:flex; align-items:flex-start; gap:14px;
+  display:flex; align-items:center; gap:14px;
   background: var(--bg); border-radius: var(--radius-md);
+  border: 1px solid transparent;
   padding: 16px; margin-bottom:14px;
+  transition: background .15s ease, border-color .15s ease;
 }
+a.course-row{ cursor:pointer; }
+a.course-row:hover{ background: var(--teal-light); border-color: var(--teal-light-2); }
 .course-row__body{ flex:1; min-width:0; }
 .course-row__title-row{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; margin-bottom:6px; }
 .course-row__title{ font-size:14px; font-weight:700; line-height:1.4; margin:0; overflow-wrap:break-word; }
 .course-row__meta-row{ display:flex; align-items:center; flex-wrap:wrap; gap:8px; }
 .course-row__meta{ font-size:12px; color: var(--text-muted); white-space:nowrap; }
+.course-row__arrow{ width:16px; height:16px; color: var(--text-muted); flex:0 0 auto; }
+a.course-row:hover .course-row__arrow{ color: var(--teal-dark); }
 .empty-hint{ font-size:12.5px; color: var(--text-muted); line-height:1.5; margin:0 0 14px; }
 .courses-card__all{ margin-top:auto; }
 
@@ -905,10 +919,6 @@ a.file-row:hover{ background: var(--teal-light); border-color: var(--teal-light-
 .recommend-item__rating a:hover{ color: var(--teal-dark); }
 .recommend-item__cta{ margin-top:auto; }
 
-/* Narrower placement (e.g. next to the profile card) needs smaller cards so the next one visibly peeks in */
-.recommend-card--compact .recommend-item{ flex-basis: 260px; }
-.recommend-card--compact .recommend-item__title{ font-size:13.5px; min-height:0; }
-
 /* ============ Responsive ============ */
 .only-mobile{ display:none; }
 
@@ -916,9 +926,9 @@ a.file-row:hover{ background: var(--teal-light); border-color: var(--teal-light-
   .grid-top{ grid-template-columns: 1fr; }
   .grid-mid{ grid-template-columns: 1fr; }
   .grid-bottom{ grid-template-columns: 1fr; }
-  .hero-card, .profile-card, .completion-card, .courses-card, .motivation-card, .recommend-card{ grid-column: span 1; }
-  .recommend-card--compact .recommend-item{ flex-basis: 340px; }
-  .recommend-card--compact .recommend-item__title{ font-size:14px; min-height:58px; }
+  .grid-home{ grid-template-columns: 1fr; }
+  .hero-card, .profile-card, .completion-card, .courses-card, .motivation-card, .recommend-card,
+  .grid-home .courses-card, .grid-home .recommend-card{ grid-column: span 1; }
 }
 
 @media (max-width: 900px){
@@ -956,7 +966,7 @@ a.file-row:hover{ background: var(--teal-light); border-color: var(--teal-light-
   .pill-btn__globe{ display:block; }
   .icon-btn{ width:34px; height:34px; }
   .search{ padding:8px 10px; }
-  .recommend-item, .recommend-card--compact .recommend-item{ flex-basis: 82vw; max-width: 320px; }
+  .recommend-item{ flex-basis: 82vw; max-width: 320px; }
 }
 
 @media (max-width: 400px){

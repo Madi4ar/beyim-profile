@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Профиль — Beyim Ustaz</title>
+<title>Главная — Beyim Ustaz</title>
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -20,7 +20,11 @@
     <nav class="sidebar__nav">
       <div class="nav-group">
         <p class="nav-group__title">Аккаунт</p>
-        <a href="index.html" class="nav-item is-active" data-view="profile">
+        <a href="index.html" class="nav-item is-active" data-view="home">
+          <i class="nav-icon" data-lucide="home"></i>
+          <span>Главная</span>
+        </a>
+        <a href="profile.html" class="nav-item" data-view="profile">
           <i class="nav-icon" data-lucide="circle-user-round"></i>
           <span>Профиль</span>
         </a>
@@ -145,8 +149,8 @@
             <i data-lucide="chevron-down"></i>
           </button>
           <div class="dropdown__menu">
-            <a href="#">Мой профиль</a>
-            <a href="#" data-edit-target="profile">Редактировать профиль</a>
+            <a href="profile.html">Мой профиль</a>
+            <a href="profile.html">Редактировать профиль</a>
             <a href="#" id="userLogoutLink">Выйти со всех устройств</a>
           </div>
         </div>
@@ -203,60 +207,49 @@
         </aside>
       </section>
 
-      <!-- ROW 2: Profile card + Qualification -->
-      <section class="grid-mid">
-        <div class="card profile-card">
+      <!-- ROW 2: Courses (continue learning) + Recommendations -->
+      <section class="grid-home">
+        <div class="card courses-card">
           <div class="card__header">
-            <h2>Общие сведения</h2>
-            <button class="edit-btn" data-edit-target="profile" title="Редактировать общие сведения" aria-label="Редактировать общие сведения">
-              <i data-lucide="pencil"></i>
-            </button>
-          </div>
-
-          <div class="profile-identity">
-            <div class="avatar-upload">
-              <span class="avatar avatar--lg">СА</span>
-              <button class="avatar-upload__btn" title="Изменить фото">
-                <i data-lucide="camera"></i>
-              </button>
-            </div>
             <div>
-              <h3 class="profile-identity__name">Серікова Аружан Ермекқызы</h3>
-              <p class="profile-identity__role">Менеджер · ЧУ «Центр педагогического мастерства»</p>
-              <span class="status-pill status-pill--ok">ИИН подтверждён</span>
+              <a href="learning.html" class="card__title-link">
+                <h2>Повышение квалификации</h2>
+                <i data-lucide="chevron-right"></i>
+              </a>
+              <p class="card__header-sub">Курсы и сертификаты слушателя</p>
             </div>
           </div>
 
-          <dl class="info-list">
-            <div class="info-row">
-              <dt><i data-lucide="id-card"></i> ИИН</dt>
-              <dd>950214350127</dd>
+          <a href="learning.html" class="course-row">
+            <div class="course-row__body">
+              <div class="course-row__title-row">
+                <p class="course-row__title">Основы маркетинга</p>
+                <span class="tag tag--course">Курс</span>
+              </div>
+              <div class="course-row__meta-row">
+                <span class="course-row__meta">02.02.2024 — 05.02.2024</span>
+              </div>
             </div>
-            <div class="info-row">
-              <dt><i data-lucide="phone"></i> Телефон</dt>
-              <dd>+7 (701) 234-56-78</dd>
-            </div>
-            <div class="info-row">
-              <dt><i data-lucide="mail"></i> E-mail</dt>
-              <dd>aruzhan.serikova@inbox.ru</dd>
-            </div>
-            <div class="info-row">
-              <dt><i data-lucide="flag"></i> Национальность</dt>
-              <dd>Казашка</dd>
-            </div>
-            <div class="info-row">
-              <dt><i data-lucide="user-round"></i> Пол</dt>
-              <dd>Женский</dd>
-            </div>
-          </dl>
+            <i data-lucide="chevron-right" class="course-row__arrow"></i>
+          </a>
 
-          <div class="profile-card__footer">
-            <button class="btn btn--outline btn--block" id="changePasswordBtn2">Сменить пароль</button>
-            <button class="btn btn--danger-outline btn--block" id="logoutAllBtn2">Выйти со всех устройств</button>
-          </div>
+          <a href="learning.html" class="course-row">
+            <div class="course-row__body">
+              <div class="course-row__title-row">
+                <p class="course-row__title">AI в образовании</p>
+                <span class="tag tag--cert">Сертификат</span>
+              </div>
+              <div class="course-row__meta-row">
+                <span class="course-row__meta">выдан 14.05.2024</span>
+              </div>
+            </div>
+            <i data-lucide="chevron-right" class="course-row__arrow"></i>
+          </a>
+
+          <a href="learning.html" class="link courses-card__all">Все курсы и сертификаты →</a>
         </div>
 
-        <section class="card recommend-card recommend-card--compact">
+        <section class="card recommend-card">
           <div class="card__header recommend-card__header">
             <div>
               <p class="recommend-card__eyebrow"><i data-lucide="sparkles"></i> Персональная подборка</p>
@@ -311,114 +304,6 @@
             </article>
           </div>
         </section>
-      </section>
-
-      <!-- ROW 3: Workplace / Qualification / Quick actions -->
-      <section class="grid-bottom">
-        <div class="card workplace-card">
-          <div class="card__header">
-            <h2>Место работы</h2>
-            <button class="edit-btn" data-edit-target="workplace" title="Редактировать место работы" aria-label="Редактировать место работы">
-              <i data-lucide="pencil"></i>
-            </button>
-          </div>
-          <ul class="place-list">
-            <li>
-              <span class="place-list__icon"><i data-lucide="map-pin"></i></span>
-              <div>
-                <p class="place-list__label">Регион</p>
-                <p class="place-list__value">г. Астана, район Есиль</p>
-              </div>
-            </li>
-            <li>
-              <span class="place-list__icon"><i data-lucide="building-2"></i></span>
-              <div>
-                <p class="place-list__label">Организация</p>
-                <p class="place-list__value">ЧУ «Центр педагогического мастерства»</p>
-              </div>
-            </li>
-            <li>
-              <span class="place-list__icon"><i data-lucide="badge-check"></i></span>
-              <div>
-                <p class="place-list__label">Должность</p>
-                <p class="place-list__value">Менеджер</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <div class="card qualification-card">
-          <div class="card__header">
-            <h2>Квалификация</h2>
-            <div class="card__header-actions">
-              <span class="tag">Педагог</span>
-              <button class="edit-btn" data-edit-target="qualification" title="Редактировать квалификацию" aria-label="Редактировать квалификацию">
-                <i data-lucide="pencil"></i>
-              </button>
-            </div>
-          </div>
-          <ul class="stat-list">
-            <li class="stat-list__item">
-              <span class="stat-list__icon"><i data-lucide="graduation-cap"></i></span>
-              <div>
-                <p class="stat-list__label">Образование</p>
-                <p class="stat-list__value">Неполное высшее</p>
-              </div>
-            </li>
-            <li class="stat-list__item">
-              <span class="stat-list__icon"><i data-lucide="scroll-text"></i></span>
-              <div>
-                <p class="stat-list__label">Учёная степень</p>
-                <p class="stat-list__value stat-list__value--muted">Нет учёной степени</p>
-              </div>
-            </li>
-            <li class="stat-list__item">
-              <span class="stat-list__icon"><i data-lucide="briefcase"></i></span>
-              <div>
-                <p class="stat-list__label">Педагогический стаж</p>
-                <p class="stat-list__value">1 год</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <div class="card courses-card">
-          <div class="card__header">
-            <div>
-              <a href="#" class="card__title-link">
-                <h2>Повышение квалификации</h2>
-                <i data-lucide="chevron-right"></i>
-              </a>
-              <p class="card__header-sub">Курсы и сертификаты слушателя</p>
-            </div>
-          </div>
-
-          <div class="course-row">
-            <div class="course-row__body">
-              <div class="course-row__title-row">
-                <p class="course-row__title">Основы маркетинга</p>
-                <span class="tag tag--course">Курс</span>
-              </div>
-              <div class="course-row__meta-row">
-                <span class="course-row__meta">02.02.2024 — 05.02.2024</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="course-row">
-            <div class="course-row__body">
-              <div class="course-row__title-row">
-                <p class="course-row__title">AI в образовании</p>
-                <span class="tag tag--cert">Сертификат</span>
-              </div>
-              <div class="course-row__meta-row">
-                <span class="course-row__meta">выдан 14.05.2024</span>
-              </div>
-            </div>
-          </div>
-
-          <a href="#" class="link courses-card__all">Все курсы и сертификаты →</a>
-        </div>
       </section>
 
     </main>
