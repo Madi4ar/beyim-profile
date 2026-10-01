@@ -981,3 +981,53 @@ a.file-row:hover{ background: var(--teal-light); border-color: var(--teal-light-
   .message-card__cta{ width:100%; justify-content:center; }
   .messages-panel{ padding: 8px 14px 16px; }
 }
+
+/* ============ Library page ============ */
+.library-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap:16px;
+}
+.book-card{
+  display:flex; flex-direction:column;
+  background:#fff; border:1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  overflow:hidden;
+  box-shadow: var(--shadow-card);
+}
+.book-card__cover{
+  position:relative; height:120px; flex:0 0 auto;
+  display:flex; align-items:center; justify-content:center;
+  color:#fff;
+}
+.book-card__cover svg{ width:34px; height:34px; opacity:.9; }
+.book-card__cover--a{ background: linear-gradient(135deg, var(--teal), var(--teal-dark)); }
+.book-card__cover--b{ background: linear-gradient(135deg, var(--blue), #2C5FB8); }
+.book-card__cover--c{ background: linear-gradient(135deg, var(--orange), #C96A28); }
+
+.book-card__format{
+  position:absolute; top:10px; left:10px;
+  background: rgba(255,255,255,.25); color:#fff;
+}
+.book-card__save{
+  position:absolute; top:8px; right:8px;
+  width:30px; height:30px; border-radius:50%;
+  background: rgba(255,255,255,.22); border:none; color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  transition: background .15s ease, color .15s ease;
+}
+.book-card__save svg{ width:15px; height:15px; }
+.book-card__save:hover{ background: rgba(255,255,255,.35); }
+.book-card__save.is-saved{ background:#fff; color:#F2B204; }
+.book-card__save.is-saved svg{ fill:#F2B204; stroke:#F2B204; }
+
+.book-card__body{ padding:14px 14px 0; flex:1; display:flex; flex-direction:column; }
+.book-card__title{ font-size:14px; font-weight:700; line-height:1.4; margin:0 0 4px; }
+.book-card__author{ font-size:12.5px; color: var(--text-secondary); margin:0 0 6px; }
+.book-card__meta{ font-size:11.5px; color: var(--text-muted); margin:0 0 14px; margin-top:auto; }
+.book-card__cta{ margin:0 14px 14px; width:auto; }
+.book-card__cta svg{ width:14px; height:14px; }
+
+@media (max-width: 480px){
+  .library-grid{ grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+}
