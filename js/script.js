@@ -42,6 +42,73 @@
     })();
   }
 
+  /* ---------- Looping typewriter for the motivation-of-the-day card ---------- */
+  const MOTIVATION_QUOTES = [
+    { quote: 'Лучший способ предсказать будущее — создать его самому.', author: 'Питер Друкер' },
+    { quote: 'Образование — это не наполнение сосуда, а разжигание огня.', author: 'Уильям Батлер Йейтс' },
+    { quote: 'Учитель, который пытается учить, не вдохновляя учиться, кует холодное железо.', author: 'Хорас Манн' },
+    { quote: 'Инвестиции в знания всегда приносят наибольший доход.', author: 'Бенджамин Франклин' },
+    { quote: 'Каждый день — это новый шанс стать лучше вчерашнего себя.', author: 'народная мудрость' },
+  ];
+
+  let motivationLoopStarted = false;
+  function startMotivationTypewriter() {
+    if (motivationLoopStarted) return;
+    motivationLoopStarted = true;
+
+    const textEl = $('#motivationQuoteText');
+    const authorEl = $('#motivationAuthor');
+    if (!textEl || !authorEl) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) {
+      const first = MOTIVATION_QUOTES[0];
+      textEl.textContent = `«${first.quote}»`;
+      authorEl.textContent = `— ${first.author}`;
+      return;
+    }
+
+    let quoteIndex = 0;
+    const typeSpeed = 42;
+    const eraseSpeed = 22;
+    const holdDelay = 2400;
+    const nextDelay = 500;
+
+    function typeNext() {
+      const { quote, author } = MOTIVATION_QUOTES[quoteIndex];
+      const full = `«${quote}»`;
+      authorEl.textContent = `— ${author}`;
+
+      let i = 0;
+      (function type() {
+        textEl.textContent = full.slice(0, i);
+        if (i < full.length) {
+          i++;
+          setTimeout(type, typeSpeed);
+        } else {
+          setTimeout(eraseCurrent, holdDelay);
+        }
+      })();
+    }
+
+    function eraseCurrent() {
+      const current = textEl.textContent;
+      let i = current.length;
+      (function erase() {
+        textEl.textContent = current.slice(0, i);
+        if (i > 0) {
+          i--;
+          setTimeout(erase, eraseSpeed);
+        } else {
+          quoteIndex = (quoteIndex + 1) % MOTIVATION_QUOTES.length;
+          setTimeout(typeNext, nextDelay);
+        }
+      })();
+    }
+
+    typeNext();
+  }
+
   /* ---------- Mobile sidebar ---------- */
   function initSidebar() {
     const sidebar = $('#sidebar');
@@ -180,7 +247,28 @@
     config.fields.forEach((field, index) => form.appendChild(buildField(field, index)));
 
     modal.dataset.successMessage = config.successMessage;
+    modal.dataset.configKey = key;
     modal.classList.add('is-open');
+  }
+
+  /* ---------- Profile completion reward ---------- */
+  function completeProfile() {
+    const completionCard = $('#completionCard');
+    const motivationCard = $('#motivationCard');
+    const ring = $('#completionRing');
+    const percent = $('#completionPercent');
+    const heroSubtext = $('#heroSubtext');
+    if (!completionCard || !motivationCard) return;
+    if (motivationCard.hidden === false) return; // already completed
+
+    if (ring) ring.style.strokeDashoffset = '0';
+    if (percent) percent.textContent = '100%';
+    if (heroSubtext) heroSubtext.textContent = 'Профиль заполнен на 100% — вам доступны мотивационные и эксклюзивные карточки.';
+
+    completionCard.hidden = true;
+    motivationCard.hidden = false;
+    if (window.lucide) window.lucide.createIcons();
+    startMotivationTypewriter();
   }
 
   function initEditTriggers() {
@@ -222,6 +310,7 @@
       const modal = $('#editModal');
       modal.classList.remove('is-open');
       showToast(modal.dataset.successMessage || 'Изменения сохранены');
+      if (modal.dataset.configKey === 'profile') completeProfile();
     });
 
     const savePassword = $('#savePasswordBtn');

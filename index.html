@@ -159,14 +159,14 @@
           <h1 class="hero-card__title" id="heroGreeting" aria-label="Здравствуйте, Аружан!" data-greeting-text="Здравствуйте, Аружан!">
             <span class="typewriter" id="typewriterText" aria-hidden="true"></span><span class="typewriter-cursor" aria-hidden="true"></span>
           </h1>
-          <p class="hero-card__text">Ваш профиль заполнен на 80%. Добавьте учёную степень и фото, чтобы куратор мог быстрее подтвердить категорию.</p>
+          <p class="hero-card__text" id="heroSubtext">Ваш профиль заполнен на 80%. Добавьте учёную степень и фото, чтобы куратор мог быстрее подтвердить категорию.</p>
           <div class="hero-card__actions">
             <button class="btn btn--white" data-edit-target="profile">Редактировать профиль</button>
             <button class="btn btn--ghost" id="trainerProfileBtn2">Профиль тренера</button>
           </div>
         </div>
 
-        <aside class="completion-card">
+        <aside class="completion-card" id="completionCard">
           <p class="completion-card__eyebrow">Заполненность профиля</p>
           <div class="ring-wrap">
             <svg viewBox="0 0 120 120" class="ring">
@@ -174,12 +174,28 @@
               <circle cx="60" cy="60" r="52" class="ring__fg" id="completionRing"/>
             </svg>
             <div class="ring__label">
-              <strong>80%</strong>
+              <strong id="completionPercent">80%</strong>
               <span>готово</span>
             </div>
           </div>
           <p class="completion-card__hint">Осталось: учёная степень, фото профиля</p>
+          <p class="completion-card__teaser">
+            <i data-lucide="sparkles"></i>
+            Заполните профиль — откроются мотивационные и эксклюзивные карточки
+          </p>
           <button class="btn btn--primary btn--block" data-edit-target="profile">Дополнить данные</button>
+        </aside>
+
+        <aside class="completion-card motivation-card" id="motivationCard" hidden>
+          <p class="completion-card__eyebrow">Мотивация дня</p>
+          <div class="motivation-card__icon"><i data-lucide="quote"></i></div>
+          <p class="motivation-card__quote" aria-label="Цитата дня обновляется автоматически">
+            <span class="typewriter" id="motivationQuoteText" aria-hidden="true"></span><span class="typewriter-cursor" aria-hidden="true"></span>
+          </p>
+          <p class="motivation-card__author" id="motivationAuthor" aria-hidden="true"></p>
+          <span class="status-pill status-pill--ok">
+            <i data-lucide="check"></i> Профиль заполнен на 100%
+          </span>
         </aside>
       </section>
 
