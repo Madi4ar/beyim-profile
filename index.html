@@ -256,43 +256,61 @@
           </div>
         </div>
 
-        <div class="card courses-card">
-          <div class="card__header">
+        <section class="card recommend-card recommend-card--compact">
+          <div class="card__header recommend-card__header">
             <div>
-              <a href="#" class="card__title-link">
-                <h2>Повышение квалификации</h2>
-                <i data-lucide="chevron-right"></i>
-              </a>
-              <p class="card__header-sub">Курсы и сертификаты слушателя</p>
+              <p class="recommend-card__eyebrow"><i data-lucide="sparkles"></i> Персональная подборка</p>
+              <h2>Может быть полезно для вас</h2>
+            </div>
+            <div class="recommend-card__nav">
+              <button class="icon-btn" id="recPrev" aria-label="Предыдущие"><i data-lucide="chevron-left"></i></button>
+              <button class="icon-btn" id="recNext" aria-label="Следующие"><i data-lucide="chevron-right"></i></button>
             </div>
           </div>
 
-          <div class="course-row">
-            <div class="course-row__body">
-              <div class="course-row__title-row">
-                <p class="course-row__title">Основы маркетинга</p>
-                <span class="tag tag--course">Курс</span>
+          <div class="recommend-track" id="recommendTrack">
+            <article class="recommend-item">
+              <div class="recommend-item__badges">
+                <span class="pill-outline">8 ч.</span>
               </div>
-              <div class="course-row__meta-row">
-                <span class="course-row__meta">02.02.2024 — 05.02.2024</span>
+              <h3 class="recommend-item__title">Организация Исследования урока (Lesson study) в учреждениях образования</h3>
+              <p class="recommend-item__type"><i data-lucide="briefcase"></i> Семинар</p>
+              <div class="recommend-item__footer">
+                <span class="recommend-item__price">13 000 ₸</span>
+                <span class="recommend-item__rating"><i data-lucide="star"></i> 5.0 <a href="#">4 отзыва</a></span>
               </div>
-            </div>
-          </div>
+              <button class="btn btn--primary btn--block recommend-item__cta" data-toast="Заявка на семинар отправлена">Записаться</button>
+            </article>
 
-          <div class="course-row">
-            <div class="course-row__body">
-              <div class="course-row__title-row">
-                <p class="course-row__title">AI в образовании</p>
-                <span class="tag tag--cert">Сертификат</span>
+            <article class="recommend-item">
+              <div class="recommend-item__badges">
+                <span class="pill-outline">80 ак.часов</span>
+                <span class="tag tag--hit">Хит продаж</span>
               </div>
-              <div class="course-row__meta-row">
-                <span class="course-row__meta">выдан 14.05.2024</span>
+              <h3 class="recommend-item__title">Практика инклюзивного образования в начальной школе</h3>
+              <p class="recommend-item__type"><i data-lucide="briefcase"></i> Курс</p>
+              <div class="recommend-item__footer">
+                <span class="recommend-item__price">17 000 ₸</span>
+                <span class="recommend-item__rating"><i data-lucide="star"></i> 5.0 <a href="#">369 отзывов</a></span>
               </div>
-            </div>
-          </div>
+              <button class="btn btn--primary btn--block recommend-item__cta" data-toast="Заявка на курс отправлена">Записаться</button>
+            </article>
 
-          <a href="#" class="link courses-card__all">Все курсы и сертификаты →</a>
-        </div>
+            <article class="recommend-item">
+              <div class="recommend-item__badges">
+                <span class="pill-outline">80 ак.часов</span>
+                <span class="tag tag--hit">Хит продаж</span>
+              </div>
+              <h3 class="recommend-item__title">Развитие предметных компетенций педагогов: эффективная практика в начальной школе</h3>
+              <p class="recommend-item__type"><i data-lucide="briefcase"></i> Курс</p>
+              <div class="recommend-item__footer">
+                <span class="recommend-item__price">17 000 ₸</span>
+                <span class="recommend-item__rating"><i data-lucide="star"></i> 5.0 <a href="#">745 отзывов</a></span>
+              </div>
+              <button class="btn btn--primary btn--block recommend-item__cta" data-toast="Заявка на курс отправлена">Записаться</button>
+            </article>
+          </div>
+        </section>
       </section>
 
       <!-- ROW 3: Workplace / Qualification / Quick actions -->
@@ -364,22 +382,42 @@
           </ul>
         </div>
 
-        <div class="card actions-card">
+        <div class="card courses-card">
           <div class="card__header">
-            <h2>Быстрые действия</h2>
+            <div>
+              <a href="#" class="card__title-link">
+                <h2>Повышение квалификации</h2>
+                <i data-lucide="chevron-right"></i>
+              </a>
+              <p class="card__header-sub">Курсы и сертификаты слушателя</p>
+            </div>
           </div>
-          <button class="action-btn" id="trainerProfileBtn3">
-            <i data-lucide="user-cog"></i>
-            <span>Профиль тренера</span>
-          </button>
-          <button class="action-btn" id="changePasswordBtn3">
-            <i data-lucide="key-round"></i>
-            <span>Сменить пароль</span>
-          </button>
-          <button class="action-btn action-btn--danger" id="logoutAllBtn3">
-            <i data-lucide="log-out"></i>
-            <span>Выйти со всех устройств</span>
-          </button>
+
+          <div class="course-row">
+            <div class="course-row__body">
+              <div class="course-row__title-row">
+                <p class="course-row__title">Основы маркетинга</p>
+                <span class="tag tag--course">Курс</span>
+              </div>
+              <div class="course-row__meta-row">
+                <span class="course-row__meta">02.02.2024 — 05.02.2024</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="course-row">
+            <div class="course-row__body">
+              <div class="course-row__title-row">
+                <p class="course-row__title">AI в образовании</p>
+                <span class="tag tag--cert">Сертификат</span>
+              </div>
+              <div class="course-row__meta-row">
+                <span class="course-row__meta">выдан 14.05.2024</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="#" class="link courses-card__all">Все курсы и сертификаты →</a>
         </div>
       </section>
 

@@ -16,12 +16,6 @@
     toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 2600);
   }
 
-  function initToastButtons() {
-    $$('.book-card__cta[data-toast]').forEach(btn => {
-      btn.addEventListener('click', () => showToast(btn.dataset.toast));
-    });
-  }
-
   function initSaveButtons() {
     $$('.book-card__save').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -69,7 +63,6 @@
   }
 
   function init() {
-    initToastButtons();
     initSaveButtons();
     initTabs();
     updateSavedCount();

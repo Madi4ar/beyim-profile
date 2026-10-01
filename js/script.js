@@ -282,7 +282,7 @@
 
   /* ---------- Modals (open/close plumbing + save actions) ---------- */
   function initModals() {
-    const passwordOpeners = ['changePasswordLink', 'changePasswordBtn2', 'changePasswordBtn3'];
+    const passwordOpeners = ['changePasswordLink', 'changePasswordBtn2'];
     passwordOpeners.forEach(id => {
       const btn = $('#' + id);
       if (!btn) return;
@@ -329,7 +329,7 @@
 
   /* ---------- Logout-all & trainer-profile actions ---------- */
   function initQuickActions() {
-    ['logoutAllLink', 'logoutAllBtn2', 'logoutAllBtn3', 'userLogoutLink'].forEach(id => {
+    ['logoutAllLink', 'logoutAllBtn2', 'userLogoutLink'].forEach(id => {
       const btn = $('#' + id);
       if (btn) btn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -337,10 +337,8 @@
       });
     });
 
-    ['trainerProfileBtn2', 'trainerProfileBtn3'].forEach(id => {
-      const btn = $('#' + id);
-      if (btn) btn.addEventListener('click', () => showToast('Открываем публичный профиль тренера…'));
-    });
+    const trainerProfileBtn2 = $('#trainerProfileBtn2');
+    if (trainerProfileBtn2) trainerProfileBtn2.addEventListener('click', () => showToast('Открываем публичный профиль тренера…'));
 
     const instagramBtn = $('#instagramBtn');
     if (instagramBtn) instagramBtn.addEventListener('click', (e) => {
@@ -360,6 +358,33 @@
     toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 2600);
   }
 
+  /* ---------- Generic [data-toast] buttons ---------- */
+  function initToastButtons() {
+    $$('[data-toast]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        showToast(btn.dataset.toast);
+      });
+    });
+  }
+
+  /* ---------- Recommendations carousel ---------- */
+  function initRecommendCarousel() {
+    const track = $('#recommendTrack');
+    const prev = $('#recPrev');
+    const next = $('#recNext');
+    if (!track || !prev || !next) return;
+
+    const scrollByCard = (direction) => {
+      const card = track.querySelector('.recommend-item');
+      const amount = card ? card.getBoundingClientRect().width + 16 : 300;
+      track.scrollBy({ left: direction * amount, behavior: 'smooth' });
+    };
+
+    prev.addEventListener('click', () => scrollByCard(-1));
+    next.addEventListener('click', () => scrollByCard(1));
+  }
+
   /* ---------- Init ---------- */
   document.addEventListener('DOMContentLoaded', () => {
     if (window.lucide) window.lucide.createIcons();
@@ -371,5 +396,7 @@
     initEditTriggers();
     initModals();
     initQuickActions();
+    initToastButtons();
+    initRecommendCarousel();
   });
 })();

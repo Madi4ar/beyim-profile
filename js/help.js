@@ -1,8 +1,7 @@
 (() => {
   'use strict';
 
-  const $  = (sel, ctx = document) => ctx.querySelector(sel);
-  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+  const $ = (sel, ctx = document) => ctx.querySelector(sel);
 
   let toastTimer = null;
   function showToast(message) {
@@ -14,18 +13,7 @@
     toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 2600);
   }
 
-  function initToastLinks() {
-    $$('[data-toast]').forEach(el => {
-      el.addEventListener('click', (e) => {
-        e.preventDefault();
-        showToast(el.dataset.toast);
-      });
-    });
-  }
-
   function init() {
-    initToastLinks();
-
     const telegramLink = $('#telegramLink');
     if (telegramLink) telegramLink.addEventListener('click', (e) => {
       e.preventDefault();

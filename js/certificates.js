@@ -14,12 +14,6 @@
     toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 2600);
   }
 
-  function initToastButtons() {
-    $$('[data-toast]').forEach(btn => {
-      btn.addEventListener('click', () => showToast(btn.dataset.toast));
-    });
-  }
-
   function initTabs() {
     const tabs = $$('.tab');
     if (tabs.length === 0) return;
@@ -42,27 +36,9 @@
     if (btn) btn.addEventListener('click', () => showToast('Переходим к услугам центра…'));
   }
 
-  function initRecommendCarousel() {
-    const track = $('#recommendTrack');
-    const prev = $('#recPrev');
-    const next = $('#recNext');
-    if (!track || !prev || !next) return;
-
-    const scrollByCard = (direction) => {
-      const card = track.querySelector('.recommend-item');
-      const amount = card ? card.getBoundingClientRect().width + 16 : 300;
-      track.scrollBy({ left: direction * amount, behavior: 'smooth' });
-    };
-
-    prev.addEventListener('click', () => scrollByCard(-1));
-    next.addEventListener('click', () => scrollByCard(1));
-  }
-
   function init() {
-    initToastButtons();
     initTabs();
     initServicesCta();
-    initRecommendCarousel();
   }
 
   document.addEventListener('DOMContentLoaded', init);

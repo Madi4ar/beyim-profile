@@ -14,15 +14,6 @@
     toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 2600);
   }
 
-  function initToastLinks() {
-    $$('[data-toast]').forEach(el => {
-      el.addEventListener('click', (e) => {
-        e.preventDefault();
-        showToast(el.dataset.toast);
-      });
-    });
-  }
-
   function initCollapsibles() {
     $$('.collapsible').forEach(block => {
       const toggle = $('[data-collapsible-toggle]', block);
@@ -74,7 +65,6 @@
   }
 
   function init() {
-    initToastLinks();
     initCollapsibles();
     initRating();
   }

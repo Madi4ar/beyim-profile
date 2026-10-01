@@ -14,12 +14,6 @@
     toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 2600);
   }
 
-  function initToastButtons() {
-    $$('[data-toast]').forEach(btn => {
-      btn.addEventListener('click', () => showToast(btn.dataset.toast));
-    });
-  }
-
   function initCatalogLinks() {
     const catalogBtn = $('#goToCatalogBtn');
     if (catalogBtn) catalogBtn.addEventListener('click', () => showToast('Переходим в каталог курсов…'));
@@ -57,28 +51,10 @@
     });
   }
 
-  function initRecommendCarousel() {
-    const track = $('#recommendTrack');
-    const prev = $('#recPrev');
-    const next = $('#recNext');
-    if (!track || !prev || !next) return;
-
-    const scrollByCard = (direction) => {
-      const card = track.querySelector('.recommend-item');
-      const amount = card ? card.getBoundingClientRect().width + 16 : 300;
-      track.scrollBy({ left: direction * amount, behavior: 'smooth' });
-    };
-
-    prev.addEventListener('click', () => scrollByCard(-1));
-    next.addEventListener('click', () => scrollByCard(1));
-  }
-
   function init() {
-    initToastButtons();
     initCatalogLinks();
     initTabs();
     initClickableCards('.event-card');
-    initRecommendCarousel();
   }
 
   document.addEventListener('DOMContentLoaded', init);
