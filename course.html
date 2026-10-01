@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>От теории обучения к проектированию урока — Beyim Ustaz</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar__brand">
+      <span class="brand-mark">B</span>
+      <span class="brand-name">Beyim Ustaz</span>
+    </div>
+
+    <nav class="sidebar__nav">
+      <div class="nav-group">
+        <p class="nav-group__title">Аккаунт</p>
+        <a href="index.html" class="nav-item" data-view="profile">
+          <i class="nav-icon" data-lucide="circle-user-round"></i>
+          <span>Профиль</span>
+        </a>
+        <a href="messages.html" class="nav-item" data-view="messages">
+          <i class="nav-icon" data-lucide="message-square"></i>
+          <span>Сообщения</span>
+          <span class="nav-badge" id="sidebarUnreadBadge">2</span>
+        </a>
+        <a href="learning.html" class="nav-item is-active" data-view="learning">
+          <i class="nav-icon" data-lucide="book-open"></i>
+          <span>Моё обучение</span>
+        </a>
+        <a href="certificates.html" class="nav-item" data-view="certificates">
+          <i class="nav-icon" data-lucide="award"></i>
+          <span>Мои сертификаты</span>
+        </a>
+        <a href="orders.html" class="nav-item" data-view="orders">
+          <i class="nav-icon" data-lucide="shopping-bag"></i>
+          <span>Мои заказы</span>
+        </a>
+      </div>
+
+      <div class="nav-group" hidden>
+        <p class="nav-group__title">Работа</p>
+        <a href="#" class="nav-item" data-view="staff">
+          <i class="nav-icon" data-lucide="building-2"></i>
+          <span>Панель сотрудника</span>
+        </a>
+      </div>
+
+      <div class="nav-group">
+        <p class="nav-group__title">Настройки</p>
+        <a href="help.html" class="nav-item" data-view="help">
+          <i class="nav-icon" data-lucide="life-buoy"></i>
+          <span>Помощь слушателям</span>
+        </a>
+        <a href="#" class="nav-item" id="changePasswordLink">
+          <i class="nav-icon" data-lucide="key-round"></i>
+          <span>Сменить пароль</span>
+        </a>
+        <a href="#" class="nav-item" id="logoutAllLink">
+          <i class="nav-icon" data-lucide="log-out"></i>
+          <span>Выйти со всех устройств</span>
+        </a>
+      </div>
+    </nav>
+
+    <div class="sidebar__promo">
+      <p class="promo__eyebrow"><i data-lucide="camera"></i> Мы в Instagram</p>
+      <p class="promo__text">Новости, анонсы мероприятий и жизнь центра &mdash; подписывайтесь, чтобы не пропустить.</p>
+      <a href="#" class="btn btn--light" id="instagramBtn">
+        <i data-lucide="arrow-up-right"></i> Подписаться
+      </a>
+    </div>
+  </aside>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- ===== MAIN ===== -->
+  <div class="main-wrap">
+
+    <header class="topbar">
+      <button class="icon-btn only-mobile" id="menuToggle" aria-label="Меню">
+        <i data-lucide="menu"></i>
+      </button>
+
+      <div class="search">
+        <i data-lucide="search"></i>
+        <input type="text" placeholder="Поиск по профилю, курсам, заказам">
+        <kbd>Ctrl K</kbd>
+      </div>
+
+      <div class="topbar__actions">
+        <div class="dropdown" id="langDropdown">
+          <button class="pill-btn" data-dropdown-toggle>
+            <i data-lucide="globe" class="pill-btn__globe"></i>
+            <span>РУС</span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="dropdown__menu">
+            <a href="#">Русский</a>
+            <a href="#">Қазақша</a>
+            <a href="#">English</a>
+          </div>
+        </div>
+
+        <div class="dropdown" id="notifDropdown">
+          <button class="icon-btn" data-dropdown-toggle>
+            <i data-lucide="bell"></i>
+            <span class="badge-dot">2</span>
+          </button>
+          <div class="dropdown__menu dropdown__menu--wide">
+            <p class="dropdown__title">Уведомления</p>
+            <div class="notif-item">
+              <span class="notif-dot notif-dot--warn"></span>
+              <div>
+                <p class="notif-item__title">Заполните раздел «Квалификация»</p>
+                <p class="notif-item__time">2 часа назад</p>
+              </div>
+            </div>
+            <div class="notif-item">
+              <span class="notif-dot notif-dot--info"></span>
+              <div>
+                <p class="notif-item__title">Новое сообщение от куратора</p>
+                <p class="notif-item__time">Вчера</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dropdown" id="userDropdown">
+          <button class="user-chip" data-dropdown-toggle>
+            <span class="avatar avatar--sm">СА</span>
+            <span class="user-chip__text">
+              <strong>Аружан С.</strong>
+              <small>Менеджер</small>
+            </span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="dropdown__menu">
+            <a href="index.html">Мой профиль</a>
+            <a href="index.html">Редактировать профиль</a>
+            <a href="#" id="userLogoutLink">Выйти со всех устройств</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a href="learning.html">Моё обучение</a>
+        <i data-lucide="chevron-right"></i>
+        <a href="learning.html">Мои курсы</a>
+        <i data-lucide="chevron-right"></i>
+        <span class="breadcrumbs__current">От теории обучения к проектированию урока</span>
+      </nav>
+
+      <header class="page-head">
+        <div>
+          <h1 class="page-head__title course-title">От теории обучения к проектированию урока</h1>
+          <p class="page-head__sub">Группа · 28.09.2026 — 02.10.2026</p>
+        </div>
+      </header>
+
+      <div class="course-layout">
+
+        <div class="course-main">
+          <div class="card">
+            <div class="curriculum">
+              <p class="curriculum__group">Введение</p>
+
+              <div class="curriculum__row">
+                <div class="curriculum__marker"><span class="curriculum__dot"></span></div>
+                <div class="curriculum__content">
+                  <h4 class="curriculum__module-title">Модуль 1. Закономерности обучения в проектировании урока</h4>
+                  <a href="#" class="curriculum__item" data-toast="Открываем «Тест Модуль 1»…">
+                    <i data-lucide="clipboard-list"></i>
+                    <span>Тест Модуль 1</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="curriculum__row">
+                <div class="curriculum__marker"><span class="curriculum__dot"></span></div>
+                <div class="curriculum__content">
+                  <h4 class="curriculum__module-title">Модуль 2. Управление учебной деятельностью: диалог, активное обучение и формативное оценивание</h4>
+                </div>
+              </div>
+
+              <p class="curriculum__group">Секция 3</p>
+              <p class="curriculum__group">Секция 4</p>
+
+              <div class="curriculum__row">
+                <div class="curriculum__marker"><span class="curriculum__dot"></span></div>
+                <div class="curriculum__content">
+                  <h4 class="curriculum__module-title">Обратная связь по курсу</h4>
+                  <a href="#" class="curriculum__item" data-toast="Открываем анкету обратной связи…">
+                    <i data-lucide="clipboard-edit"></i>
+                    <span>Заполнить анкету</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="curriculum__row curriculum__row--last">
+                <div class="curriculum__marker"><span class="curriculum__dot"></span></div>
+                <div class="curriculum__content">
+                  <h4 class="curriculum__module-title">Документ об окончании курса</h4>
+                  <a href="#" class="curriculum__item curriculum__item--solid" data-toast="Открываем сертификат…">
+                    <i data-lucide="award"></i>
+                    <div class="curriculum__item-body">
+                      <span>Сертификат</span>
+                      <span class="curriculum__item-hint">Ваши оценки по модульным тестам отображаются в сертификате</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="curriculum">
+              <div class="curriculum__row curriculum__row--last">
+                <div class="curriculum__marker"><span class="curriculum__dot"></span></div>
+                <div class="curriculum__content">
+                  <h4 class="curriculum__module-title">Посткурсовое сопровождение</h4>
+                  <a href="#" class="curriculum__item" data-toast="Открываем матрицу коммуникаций…">
+                    <i data-lucide="file-text"></i>
+                    <span>Матрица коммуникаций тренера со слушателями</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="course-side">
+          <div class="card collapsible is-open" id="infoCollapsible">
+            <button class="collapsible__header" data-collapsible-toggle>
+              <h2>Общие сведения</h2>
+              <i data-lucide="chevron-down" class="collapsible__chevron"></i>
+            </button>
+            <div class="collapsible__body">
+              <div class="info-grid">
+                <div>
+                  <p class="info-grid__label">Тренер</p>
+                  <p class="info-grid__value">Чижевская Юлия Тимуровна</p>
+                </div>
+                <div>
+                  <p class="info-grid__label">Период</p>
+                  <p class="info-grid__value">28.09.2026 – 02.10.2026</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card collapsible is-open" id="rateCollapsible">
+            <button class="collapsible__header" data-collapsible-toggle>
+              <h2>Оцените курс</h2>
+              <i data-lucide="chevron-down" class="collapsible__chevron"></i>
+            </button>
+            <div class="collapsible__body">
+              <div class="rating-stars" id="ratingStars">
+                <button type="button" class="rating-stars__btn" data-value="1"><i data-lucide="star"></i></button>
+                <button type="button" class="rating-stars__btn" data-value="2"><i data-lucide="star"></i></button>
+                <button type="button" class="rating-stars__btn" data-value="3"><i data-lucide="star"></i></button>
+                <button type="button" class="rating-stars__btn" data-value="4"><i data-lucide="star"></i></button>
+                <button type="button" class="rating-stars__btn" data-value="5"><i data-lucide="star"></i></button>
+              </div>
+              <textarea class="rating-comment" id="ratingComment" placeholder="Расскажите, что понравилось или что можно улучшить (необязательно)"></textarea>
+              <button class="btn btn--primary btn--block" id="submitRatingBtn">Отправить оценку</button>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/lucide@1.49.0/dist/umd/lucide.js"></script>
+<script src="js/script.js"></script>
+<script src="js/course.js"></script>
+</body>
+</html>

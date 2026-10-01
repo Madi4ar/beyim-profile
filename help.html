@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Помощь слушателям — Beyim Ustaz</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar__brand">
+      <span class="brand-mark">B</span>
+      <span class="brand-name">Beyim Ustaz</span>
+    </div>
+
+    <nav class="sidebar__nav">
+      <div class="nav-group">
+        <p class="nav-group__title">Аккаунт</p>
+        <a href="index.html" class="nav-item" data-view="profile">
+          <i class="nav-icon" data-lucide="circle-user-round"></i>
+          <span>Профиль</span>
+        </a>
+        <a href="messages.html" class="nav-item" data-view="messages">
+          <i class="nav-icon" data-lucide="message-square"></i>
+          <span>Сообщения</span>
+          <span class="nav-badge" id="sidebarUnreadBadge">2</span>
+        </a>
+        <a href="learning.html" class="nav-item" data-view="learning">
+          <i class="nav-icon" data-lucide="book-open"></i>
+          <span>Моё обучение</span>
+        </a>
+        <a href="certificates.html" class="nav-item" data-view="certificates">
+          <i class="nav-icon" data-lucide="award"></i>
+          <span>Мои сертификаты</span>
+        </a>
+        <a href="orders.html" class="nav-item" data-view="orders">
+          <i class="nav-icon" data-lucide="shopping-bag"></i>
+          <span>Мои заказы</span>
+        </a>
+      </div>
+
+      <div class="nav-group" hidden>
+        <p class="nav-group__title">Работа</p>
+        <a href="#" class="nav-item" data-view="staff">
+          <i class="nav-icon" data-lucide="building-2"></i>
+          <span>Панель сотрудника</span>
+        </a>
+      </div>
+
+      <div class="nav-group">
+        <p class="nav-group__title">Настройки</p>
+        <a href="help.html" class="nav-item is-active" data-view="help">
+          <i class="nav-icon" data-lucide="life-buoy"></i>
+          <span>Помощь слушателям</span>
+        </a>
+        <a href="#" class="nav-item" id="changePasswordLink">
+          <i class="nav-icon" data-lucide="key-round"></i>
+          <span>Сменить пароль</span>
+        </a>
+        <a href="#" class="nav-item" id="logoutAllLink">
+          <i class="nav-icon" data-lucide="log-out"></i>
+          <span>Выйти со всех устройств</span>
+        </a>
+      </div>
+    </nav>
+
+    <div class="sidebar__promo">
+      <p class="promo__eyebrow"><i data-lucide="camera"></i> Мы в Instagram</p>
+      <p class="promo__text">Новости, анонсы мероприятий и жизнь центра &mdash; подписывайтесь, чтобы не пропустить.</p>
+      <a href="#" class="btn btn--light" id="instagramBtn">
+        <i data-lucide="arrow-up-right"></i> Подписаться
+      </a>
+    </div>
+  </aside>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- ===== MAIN ===== -->
+  <div class="main-wrap">
+
+    <header class="topbar">
+      <button class="icon-btn only-mobile" id="menuToggle" aria-label="Меню">
+        <i data-lucide="menu"></i>
+      </button>
+
+      <div class="search">
+        <i data-lucide="search"></i>
+        <input type="text" placeholder="Поиск по профилю, курсам, заказам">
+        <kbd>Ctrl K</kbd>
+      </div>
+
+      <div class="topbar__actions">
+        <div class="dropdown" id="langDropdown">
+          <button class="pill-btn" data-dropdown-toggle>
+            <i data-lucide="globe" class="pill-btn__globe"></i>
+            <span>РУС</span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="dropdown__menu">
+            <a href="#">Русский</a>
+            <a href="#">Қазақша</a>
+            <a href="#">English</a>
+          </div>
+        </div>
+
+        <div class="dropdown" id="notifDropdown">
+          <button class="icon-btn" data-dropdown-toggle>
+            <i data-lucide="bell"></i>
+            <span class="badge-dot">2</span>
+          </button>
+          <div class="dropdown__menu dropdown__menu--wide">
+            <p class="dropdown__title">Уведомления</p>
+            <div class="notif-item">
+              <span class="notif-dot notif-dot--warn"></span>
+              <div>
+                <p class="notif-item__title">Заполните раздел «Квалификация»</p>
+                <p class="notif-item__time">2 часа назад</p>
+              </div>
+            </div>
+            <div class="notif-item">
+              <span class="notif-dot notif-dot--info"></span>
+              <div>
+                <p class="notif-item__title">Новое сообщение от куратора</p>
+                <p class="notif-item__time">Вчера</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dropdown" id="userDropdown">
+          <button class="user-chip" data-dropdown-toggle>
+            <span class="avatar avatar--sm">СА</span>
+            <span class="user-chip__text">
+              <strong>Аружан С.</strong>
+              <small>Менеджер</small>
+            </span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="dropdown__menu">
+            <a href="index.html">Мой профиль</a>
+            <a href="index.html">Редактировать профиль</a>
+            <a href="#" id="userLogoutLink">Выйти со всех устройств</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="content content--narrow">
+
+      <header class="page-head">
+        <div>
+          <h1 class="page-head__title">Помощь слушателям</h1>
+          <p class="page-head__sub">Контакты центра, часы работы и документы</p>
+        </div>
+      </header>
+
+      <section class="card">
+        <div class="card__header"><h2>Контакты</h2></div>
+        <div class="info-grid">
+          <div>
+            <p class="info-grid__label">Телефон</p>
+            <a href="tel:+77172697414" class="info-grid__link">+7 (7172) 69-74-14</a>
+            <p class="help-note">Курсы, семинары, PGCE переподготовка</p>
+          </div>
+          <div>
+            <p class="info-grid__label">Telegram</p>
+            <a href="#" class="info-grid__link" id="telegramLink">+7 (707) 605-57-45</a>
+          </div>
+          <div>
+            <p class="info-grid__label">Сайт</p>
+            <a href="https://cpm.kz" class="info-grid__link" target="_blank" rel="noopener">cpm.kz</a>
+          </div>
+          <div>
+            <p class="info-grid__label">Адрес</p>
+            <p class="info-grid__value">г. Астана, ул. Хусейн бен Талал, 21/1</p>
+          </div>
+          <div>
+            <p class="info-grid__label">Время работы</p>
+            <p class="info-grid__value">Пн–Пт, 08:30–17:30</p>
+          </div>
+          <div>
+            <p class="info-grid__label">Перерыв</p>
+            <p class="info-grid__value">12:30–13:30</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card__header"><h2>Служба поддержки слушателей</h2></div>
+        <p class="help-text">Вопросы по курсам, мероприятиям, оплате и сертификатам — поможем разобраться.</p>
+        <button class="btn btn--primary" id="supportBtn">
+          <i data-lucide="headphones"></i> Написать в поддержку
+        </button>
+      </section>
+
+      <section class="card">
+        <div class="card__header"><h2>Документы</h2></div>
+        <div class="cert-list">
+          <a href="#" class="file-row" data-toast="Открываем документ…">
+            <div class="file-row__icon"><i data-lucide="file-text"></i></div>
+            <div class="file-row__body">
+              <p class="file-row__title">Пользовательское соглашение</p>
+            </div>
+            <span class="file-row__action link">Открыть</span>
+          </a>
+          <a href="#" class="file-row" data-toast="Открываем документ…">
+            <div class="file-row__icon"><i data-lucide="file-text"></i></div>
+            <div class="file-row__body">
+              <p class="file-row__title">Политика конфиденциальности</p>
+            </div>
+            <span class="file-row__action link">Открыть</span>
+          </a>
+          <a href="#" class="file-row" data-toast="Открываем документ…">
+            <div class="file-row__icon"><i data-lucide="file-text"></i></div>
+            <div class="file-row__body">
+              <p class="file-row__title">Договор-оферта</p>
+            </div>
+            <span class="file-row__action link">Открыть</span>
+          </a>
+        </div>
+      </section>
+
+      <p class="help-copyright">© 2026 Beyim Ustaz, Центр педагогического мастерства</p>
+
+    </main>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/lucide@1.49.0/dist/umd/lucide.js"></script>
+<script src="js/script.js"></script>
+<script src="js/help.js"></script>
+</body>
+</html>

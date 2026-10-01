@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Мои сертификаты — Beyim Ustaz</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar__brand">
+      <span class="brand-mark">B</span>
+      <span class="brand-name">Beyim Ustaz</span>
+    </div>
+
+    <nav class="sidebar__nav">
+      <div class="nav-group">
+        <p class="nav-group__title">Аккаунт</p>
+        <a href="index.html" class="nav-item" data-view="profile">
+          <i class="nav-icon" data-lucide="circle-user-round"></i>
+          <span>Профиль</span>
+        </a>
+        <a href="messages.html" class="nav-item" data-view="messages">
+          <i class="nav-icon" data-lucide="message-square"></i>
+          <span>Сообщения</span>
+          <span class="nav-badge" id="sidebarUnreadBadge">2</span>
+        </a>
+        <a href="learning.html" class="nav-item" data-view="learning">
+          <i class="nav-icon" data-lucide="book-open"></i>
+          <span>Моё обучение</span>
+        </a>
+        <a href="certificates.html" class="nav-item is-active" data-view="certificates">
+          <i class="nav-icon" data-lucide="award"></i>
+          <span>Мои сертификаты</span>
+        </a>
+        <a href="orders.html" class="nav-item" data-view="orders">
+          <i class="nav-icon" data-lucide="shopping-bag"></i>
+          <span>Мои заказы</span>
+        </a>
+      </div>
+
+      <div class="nav-group" hidden>
+        <p class="nav-group__title">Работа</p>
+        <a href="#" class="nav-item" data-view="staff">
+          <i class="nav-icon" data-lucide="building-2"></i>
+          <span>Панель сотрудника</span>
+        </a>
+      </div>
+
+      <div class="nav-group">
+        <p class="nav-group__title">Настройки</p>
+        <a href="help.html" class="nav-item" data-view="help">
+          <i class="nav-icon" data-lucide="life-buoy"></i>
+          <span>Помощь слушателям</span>
+        </a>
+        <a href="#" class="nav-item" id="changePasswordLink">
+          <i class="nav-icon" data-lucide="key-round"></i>
+          <span>Сменить пароль</span>
+        </a>
+        <a href="#" class="nav-item" id="logoutAllLink">
+          <i class="nav-icon" data-lucide="log-out"></i>
+          <span>Выйти со всех устройств</span>
+        </a>
+      </div>
+    </nav>
+
+    <div class="sidebar__promo">
+      <p class="promo__eyebrow"><i data-lucide="camera"></i> Мы в Instagram</p>
+      <p class="promo__text">Новости, анонсы мероприятий и жизнь центра &mdash; подписывайтесь, чтобы не пропустить.</p>
+      <a href="#" class="btn btn--light" id="instagramBtn">
+        <i data-lucide="arrow-up-right"></i> Подписаться
+      </a>
+    </div>
+  </aside>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- ===== MAIN ===== -->
+  <div class="main-wrap">
+
+    <header class="topbar">
+      <button class="icon-btn only-mobile" id="menuToggle" aria-label="Меню">
+        <i data-lucide="menu"></i>
+      </button>
+
+      <div class="search">
+        <i data-lucide="search"></i>
+        <input type="text" placeholder="Поиск по профилю, курсам, заказам">
+        <kbd>Ctrl K</kbd>
+      </div>
+
+      <div class="topbar__actions">
+        <div class="dropdown" id="langDropdown">
+          <button class="pill-btn" data-dropdown-toggle>
+            <i data-lucide="globe" class="pill-btn__globe"></i>
+            <span>РУС</span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="dropdown__menu">
+            <a href="#">Русский</a>
+            <a href="#">Қазақша</a>
+            <a href="#">English</a>
+          </div>
+        </div>
+
+        <div class="dropdown" id="notifDropdown">
+          <button class="icon-btn" data-dropdown-toggle>
+            <i data-lucide="bell"></i>
+            <span class="badge-dot">2</span>
+          </button>
+          <div class="dropdown__menu dropdown__menu--wide">
+            <p class="dropdown__title">Уведомления</p>
+            <div class="notif-item">
+              <span class="notif-dot notif-dot--warn"></span>
+              <div>
+                <p class="notif-item__title">Заполните раздел «Квалификация»</p>
+                <p class="notif-item__time">2 часа назад</p>
+              </div>
+            </div>
+            <div class="notif-item">
+              <span class="notif-dot notif-dot--info"></span>
+              <div>
+                <p class="notif-item__title">Новое сообщение от куратора</p>
+                <p class="notif-item__time">Вчера</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dropdown" id="userDropdown">
+          <button class="user-chip" data-dropdown-toggle>
+            <span class="avatar avatar--sm">СА</span>
+            <span class="user-chip__text">
+              <strong>Аружан С.</strong>
+              <small>Менеджер</small>
+            </span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="dropdown__menu">
+            <a href="index.html">Мой профиль</a>
+            <a href="index.html">Редактировать профиль</a>
+            <a href="#" id="userLogoutLink">Выйти со всех устройств</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+
+      <header class="page-head">
+        <div>
+          <h1 class="page-head__title">Мои сертификаты</h1>
+          <p class="page-head__sub">Документы по курсам, мероприятиям и услугам центра</p>
+        </div>
+      </header>
+
+      <section class="card">
+        <div class="tabs-bar">
+          <div class="tabs" role="tablist">
+            <button class="tab is-active" data-tab="courses" role="tab" aria-selected="true">
+              Курсы <span class="tab__count">6</span>
+            </button>
+            <button class="tab" data-tab="events" role="tab" aria-selected="false">
+              Мероприятия <span class="tab__count">2</span>
+            </button>
+            <button class="tab" data-tab="services" role="tab" aria-selected="false">
+              Услуги <span class="tab__count">0</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-panel="courses">
+          <div class="cert-list">
+            <div class="file-row">
+              <div class="file-row__icon file-row__icon--cert"><i data-lucide="award"></i></div>
+              <div class="file-row__body">
+                <span class="tag file-row__type">Скан-копия сертификата</span>
+                <p class="file-row__title">Урок физики в школе: фокусы и стратегии улучшений</p>
+                <p class="file-row__meta">Тренер: Жолдасбаева Сапура Альжановна · Выдан: 08.04.2022</p>
+              </div>
+              <button class="btn btn--outline btn--sm file-row__action" data-toast="Скачиваем сертификат…">
+                <i data-lucide="download"></i> Скачать
+              </button>
+            </div>
+
+            <div class="file-row">
+              <div class="file-row__icon file-row__icon--cert"><i data-lucide="award"></i></div>
+              <div class="file-row__body">
+                <span class="tag file-row__type">Скан-копия сертификата</span>
+                <p class="file-row__title">Школьная команда: эффективное управление и качество образования</p>
+                <p class="file-row__meta">Тренер: Дюсенбаева Ардак Толеуовна · Выдан: 06.09.2022</p>
+              </div>
+              <button class="btn btn--outline btn--sm file-row__action" data-toast="Скачиваем сертификат…">
+                <i data-lucide="download"></i> Скачать
+              </button>
+            </div>
+
+            <div class="file-row">
+              <div class="file-row__icon file-row__icon--cert"><i data-lucide="award"></i></div>
+              <div class="file-row__body">
+                <span class="tag file-row__type">Скан-копия сертификата</span>
+                <p class="file-row__title">Развитие естественнонаучной и читательской грамотности, креативного мышления школьников</p>
+                <p class="file-row__meta">Тренер: Рысбекова Алия Айтбаевна, Мукутов Талгат Кенжебекович · Выдан: 14.07.2020</p>
+              </div>
+              <button class="btn btn--outline btn--sm file-row__action" data-toast="Скачиваем сертификат…">
+                <i data-lucide="download"></i> Скачать
+              </button>
+            </div>
+
+            <div class="file-row">
+              <div class="file-row__icon file-row__icon--cert"><i data-lucide="award"></i></div>
+              <div class="file-row__body">
+                <span class="tag file-row__type">Скан-копия сертификата</span>
+                <p class="file-row__title">Инновационный менеджмент в управлении школой</p>
+                <p class="file-row__meta">Тренер: Жолдасбаева Сапура Альжановна, Жунусова Фарида Умутжановна · Выдан: 17.09.2021</p>
+              </div>
+              <button class="btn btn--outline btn--sm file-row__action" data-toast="Скачиваем сертификат…">
+                <i data-lucide="download"></i> Скачать
+              </button>
+            </div>
+
+            <div class="file-row">
+              <div class="file-row__icon file-row__icon--cert"><i data-lucide="award"></i></div>
+              <div class="file-row__body">
+                <span class="tag file-row__type">Скан-копия сертификата</span>
+                <p class="file-row__title">Методология прикладных исследований</p>
+                <p class="file-row__meta">Тренер: Жолдасбаева Сапура Альжановна, Ныгметова Бибигуль Джамбуловна · Выдан: 05.03.2021</p>
+              </div>
+              <button class="btn btn--outline btn--sm file-row__action" data-toast="Скачиваем сертификат…">
+                <i data-lucide="download"></i> Скачать
+              </button>
+            </div>
+
+            <div class="file-row">
+              <div class="file-row__icon file-row__icon--cert"><i data-lucide="award"></i></div>
+              <div class="file-row__body">
+                <span class="tag file-row__type">Скан-копия сертификата</span>
+                <p class="file-row__title">Лидеры изменений: новый взгляд на управление современной школой</p>
+                <p class="file-row__meta">Тренер: Мукутов Талгат Кенжебекович · Выдан: 09.02.2024</p>
+              </div>
+              <button class="btn btn--outline btn--sm file-row__action" data-toast="Скачиваем сертификат…">
+                <i data-lucide="download"></i> Скачать
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-panel="events" hidden>
+          <div class="cert-list">
+            <div class="file-row">
+              <div class="file-row__icon file-row__icon--cert"><i data-lucide="award"></i></div>
+              <div class="file-row__body">
+                <span class="tag file-row__type">Сертификат</span>
+                <p class="file-row__title">Казахстанский тренер: опыт, сотрудничество и перспективы развития</p>
+                <p class="file-row__meta">Тренер: Закарьянова Ардак Болаткановна, Мукутов Талгат Кенжебекович · Выдан: 11.06.2025</p>
+              </div>
+              <button class="btn btn--outline btn--sm file-row__action" data-toast="Скачиваем сертификат…">
+                <i data-lucide="download"></i> Скачать
+              </button>
+            </div>
+
+            <div class="file-row">
+              <div class="file-row__icon file-row__icon--cert"><i data-lucide="award"></i></div>
+              <div class="file-row__body">
+                <span class="tag file-row__type">Сертификат</span>
+                <p class="file-row__title">Международная научно-практическая конференция «XIV NIS Conference 2025»</p>
+                <p class="file-row__meta">Тренер: Баймырза Мирас Төлеуханұлы · Выдан: 31.10.2025</p>
+              </div>
+              <a href="event.html" class="btn btn--outline btn--sm file-row__action">
+                <i data-lucide="eye"></i> Открыть мероприятие
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-panel="services" hidden>
+          <div class="empty-state">
+            <div class="empty-state__icon"><i data-lucide="sparkles"></i></div>
+            <p class="empty-state__title">Сертификатов пока нет</p>
+            <p class="empty-state__text">Документы по дополнительным услугам центра появятся здесь после оформления.</p>
+            <button class="btn btn--primary" id="goToServicesBtn">Смотреть услуги</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card recommend-card">
+        <div class="card__header recommend-card__header">
+          <div>
+            <p class="recommend-card__eyebrow"><i data-lucide="sparkles"></i> Персональная подборка</p>
+            <h2>Может быть полезно для вас</h2>
+          </div>
+          <div class="recommend-card__nav">
+            <button class="icon-btn" id="recPrev" aria-label="Предыдущие"><i data-lucide="chevron-left"></i></button>
+            <button class="icon-btn" id="recNext" aria-label="Следующие"><i data-lucide="chevron-right"></i></button>
+          </div>
+        </div>
+
+        <div class="recommend-track" id="recommendTrack">
+          <article class="recommend-item">
+            <div class="recommend-item__badges">
+              <span class="pill-outline">8 ч.</span>
+            </div>
+            <h3 class="recommend-item__title">Организация Исследования урока (Lesson study) в учреждениях образования</h3>
+            <p class="recommend-item__type"><i data-lucide="briefcase"></i> Семинар</p>
+            <div class="recommend-item__footer">
+              <span class="recommend-item__price">13 000 ₸</span>
+              <span class="recommend-item__rating"><i data-lucide="star"></i> 5.0 <a href="#">4 отзыва</a></span>
+            </div>
+            <button class="btn btn--primary btn--block recommend-item__cta" data-toast="Заявка на семинар отправлена">Записаться</button>
+          </article>
+
+          <article class="recommend-item">
+            <div class="recommend-item__badges">
+              <span class="pill-outline">80 ак.часов</span>
+              <span class="tag tag--hit">Хит продаж</span>
+            </div>
+            <h3 class="recommend-item__title">Практика инклюзивного образования в начальной школе</h3>
+            <p class="recommend-item__type"><i data-lucide="briefcase"></i> Курс</p>
+            <div class="recommend-item__footer">
+              <span class="recommend-item__price">17 000 ₸</span>
+              <span class="recommend-item__rating"><i data-lucide="star"></i> 5.0 <a href="#">369 отзывов</a></span>
+            </div>
+            <button class="btn btn--primary btn--block recommend-item__cta" data-toast="Заявка на курс отправлена">Записаться</button>
+          </article>
+
+          <article class="recommend-item">
+            <div class="recommend-item__badges">
+              <span class="pill-outline">80 ак.часов</span>
+              <span class="tag tag--hit">Хит продаж</span>
+            </div>
+            <h3 class="recommend-item__title">Развитие предметных компетенций педагогов: эффективная практика в начальной школе</h3>
+            <p class="recommend-item__type"><i data-lucide="briefcase"></i> Курс</p>
+            <div class="recommend-item__footer">
+              <span class="recommend-item__price">17 000 ₸</span>
+              <span class="recommend-item__rating"><i data-lucide="star"></i> 5.0 <a href="#">745 отзывов</a></span>
+            </div>
+            <button class="btn btn--primary btn--block recommend-item__cta" data-toast="Заявка на курс отправлена">Записаться</button>
+          </article>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/lucide@1.49.0/dist/umd/lucide.js"></script>
+<script src="js/script.js"></script>
+<script src="js/certificates.js"></script>
+</body>
+</html>

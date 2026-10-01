@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XIV NIS Conference 2025 — Beyim Ustaz</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar__brand">
+      <span class="brand-mark">B</span>
+      <span class="brand-name">Beyim Ustaz</span>
+    </div>
+
+    <nav class="sidebar__nav">
+      <div class="nav-group">
+        <p class="nav-group__title">Аккаунт</p>
+        <a href="index.html" class="nav-item" data-view="profile">
+          <i class="nav-icon" data-lucide="circle-user-round"></i>
+          <span>Профиль</span>
+        </a>
+        <a href="messages.html" class="nav-item" data-view="messages">
+          <i class="nav-icon" data-lucide="message-square"></i>
+          <span>Сообщения</span>
+          <span class="nav-badge" id="sidebarUnreadBadge">2</span>
+        </a>
+        <a href="learning.html" class="nav-item is-active" data-view="learning">
+          <i class="nav-icon" data-lucide="book-open"></i>
+          <span>Моё обучение</span>
+        </a>
+        <a href="certificates.html" class="nav-item" data-view="certificates">
+          <i class="nav-icon" data-lucide="award"></i>
+          <span>Мои сертификаты</span>
+        </a>
+        <a href="orders.html" class="nav-item" data-view="orders">
+          <i class="nav-icon" data-lucide="shopping-bag"></i>
+          <span>Мои заказы</span>
+        </a>
+      </div>
+
+      <div class="nav-group" hidden>
+        <p class="nav-group__title">Работа</p>
+        <a href="#" class="nav-item" data-view="staff">
+          <i class="nav-icon" data-lucide="building-2"></i>
+          <span>Панель сотрудника</span>
+        </a>
+      </div>
+
+      <div class="nav-group">
+        <p class="nav-group__title">Настройки</p>
+        <a href="help.html" class="nav-item" data-view="help">
+          <i class="nav-icon" data-lucide="life-buoy"></i>
+          <span>Помощь слушателям</span>
+        </a>
+        <a href="#" class="nav-item" id="changePasswordLink">
+          <i class="nav-icon" data-lucide="key-round"></i>
+          <span>Сменить пароль</span>
+        </a>
+        <a href="#" class="nav-item" id="logoutAllLink">
+          <i class="nav-icon" data-lucide="log-out"></i>
+          <span>Выйти со всех устройств</span>
+        </a>
+      </div>
+    </nav>
+
+    <div class="sidebar__promo">
+      <p class="promo__eyebrow"><i data-lucide="camera"></i> Мы в Instagram</p>
+      <p class="promo__text">Новости, анонсы мероприятий и жизнь центра &mdash; подписывайтесь, чтобы не пропустить.</p>
+      <a href="#" class="btn btn--light" id="instagramBtn">
+        <i data-lucide="arrow-up-right"></i> Подписаться
+      </a>
+    </div>
+  </aside>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- ===== MAIN ===== -->
+  <div class="main-wrap">
+
+    <header class="topbar">
+      <button class="icon-btn only-mobile" id="menuToggle" aria-label="Меню">
+        <i data-lucide="menu"></i>
+      </button>
+
+      <div class="search">
+        <i data-lucide="search"></i>
+        <input type="text" placeholder="Поиск по профилю, курсам, заказам">
+        <kbd>Ctrl K</kbd>
+      </div>
+
+      <div class="topbar__actions">
+        <div class="dropdown" id="langDropdown">
+          <button class="pill-btn" data-dropdown-toggle>
+            <i data-lucide="globe" class="pill-btn__globe"></i>
+            <span>РУС</span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="dropdown__menu">
+            <a href="#">Русский</a>
+            <a href="#">Қазақша</a>
+            <a href="#">English</a>
+          </div>
+        </div>
+
+        <div class="dropdown" id="notifDropdown">
+          <button class="icon-btn" data-dropdown-toggle>
+            <i data-lucide="bell"></i>
+            <span class="badge-dot">2</span>
+          </button>
+          <div class="dropdown__menu dropdown__menu--wide">
+            <p class="dropdown__title">Уведомления</p>
+            <div class="notif-item">
+              <span class="notif-dot notif-dot--warn"></span>
+              <div>
+                <p class="notif-item__title">Заполните раздел «Квалификация»</p>
+                <p class="notif-item__time">2 часа назад</p>
+              </div>
+            </div>
+            <div class="notif-item">
+              <span class="notif-dot notif-dot--info"></span>
+              <div>
+                <p class="notif-item__title">Новое сообщение от куратора</p>
+                <p class="notif-item__time">Вчера</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dropdown" id="userDropdown">
+          <button class="user-chip" data-dropdown-toggle>
+            <span class="avatar avatar--sm">СА</span>
+            <span class="user-chip__text">
+              <strong>Аружан С.</strong>
+              <small>Менеджер</small>
+            </span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="dropdown__menu">
+            <a href="index.html">Мой профиль</a>
+            <a href="index.html">Редактировать профиль</a>
+            <a href="#" id="userLogoutLink">Выйти со всех устройств</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a href="learning.html">Моё обучение</a>
+        <i data-lucide="chevron-right"></i>
+        <a href="learning.html">Мои мероприятия</a>
+        <i data-lucide="chevron-right"></i>
+        <span class="breadcrumbs__current">Международная научно-практическая конференция «XIV NIS Conference 2025»</span>
+      </nav>
+
+      <header class="page-head">
+        <div>
+          <h1 class="page-head__title course-title">Международная научно-практическая конференция «XIV NIS Conference 2025»</h1>
+          <p class="page-head__sub">30.10.2025 — 31.10.2025 · Назарбаев Университет</p>
+        </div>
+      </header>
+
+      <div class="event-detail">
+
+        <section class="card">
+          <div class="card__header"><h2>Общие сведения</h2></div>
+          <div class="info-grid">
+            <div>
+              <p class="info-grid__label">Группа</p>
+              <p class="info-grid__value">01-270-1482-25-E</p>
+            </div>
+            <div>
+              <p class="info-grid__label">Место проведения</p>
+              <p class="info-grid__value">Назарбаев Университет, пр. Кабанбай батыра, 53</p>
+            </div>
+            <div>
+              <p class="info-grid__label">Статус группы</p>
+              <span class="status-pill status-pill--muted">Группа закрыта</span>
+            </div>
+            <div>
+              <p class="info-grid__label">Организатор</p>
+              <p class="info-grid__value">Баймырза Мирас Төлеуханұлы</p>
+            </div>
+            <div>
+              <p class="info-grid__label">Период</p>
+              <p class="info-grid__value">30.10.2025 – 31.10.2025</p>
+            </div>
+            <div>
+              <p class="info-grid__label">Роль</p>
+              <p class="info-grid__value">Докладчик</p>
+            </div>
+            <div>
+              <p class="info-grid__label">Направление</p>
+              <p class="info-grid__value">Лидерство и управление в образовании</p>
+            </div>
+            <div>
+              <p class="info-grid__label">Статус участия</p>
+              <span class="status-pill status-pill--ok">Абстракт принят · устная презентация</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card__header"><h2>Приглашение</h2></div>
+          <div class="file-row">
+            <div class="file-row__icon"><i data-lucide="file-text"></i></div>
+            <div class="file-row__body">
+              <p class="file-row__title">Приглашение на XIV NIS Conference 2025</p>
+              <p class="file-row__meta">PDF · официальное приглашение участника</p>
+            </div>
+            <button class="btn btn--primary btn--sm file-row__action" data-toast="Скачиваем приглашение…">
+              <i data-lucide="download"></i> Скачать
+            </button>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card__header"><h2>Сертификат</h2></div>
+          <div class="file-row">
+            <div class="file-row__icon file-row__icon--cert"><i data-lucide="award"></i></div>
+            <div class="file-row__body">
+              <p class="file-row__title">Международная научно-практическая конференция «XIV NIS Conference 2025»</p>
+              <p class="file-row__meta">Кому: Жолдасбаева Сапура Альжановна · Выпущено: 31.10.2025</p>
+            </div>
+            <button class="btn btn--outline btn--sm file-row__action" data-toast="Скачиваем сертификат…">
+              <i data-lucide="download"></i> Скачать
+            </button>
+          </div>
+        </section>
+
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/lucide@1.49.0/dist/umd/lucide.js"></script>
+<script src="js/script.js"></script>
+<script src="js/event.js"></script>
+</body>
+</html>
