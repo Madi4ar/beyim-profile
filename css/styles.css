@@ -282,9 +282,7 @@ a.contact-row:hover{ background: var(--teal-light); color: var(--teal-dark); }
 .hero-card, .profile-card{ grid-column: span 2; }
 .completion-card, .courses-card, .motivation-card, .recommend-card{ grid-column: span 1; }
 .grid-bottom{ display:grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr); gap:20px; align-items:stretch; }
-.grid-home{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:20px; align-items:stretch; }
-.grid-home .courses-card{ grid-column: span 1; }
-.grid-home .recommend-card{ grid-column: span 2; }
+.grid-home{ display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:20px; align-items:stretch; }
 
 /* ============ Hero card ============ */
 .hero-card{
@@ -927,8 +925,7 @@ a.file-row:hover{ background: var(--teal-light); border-color: var(--teal-light-
   .grid-mid{ grid-template-columns: 1fr; }
   .grid-bottom{ grid-template-columns: 1fr; }
   .grid-home{ grid-template-columns: 1fr; }
-  .hero-card, .profile-card, .completion-card, .courses-card, .motivation-card, .recommend-card,
-  .grid-home .courses-card, .grid-home .recommend-card{ grid-column: span 1; }
+  .hero-card, .profile-card, .completion-card, .courses-card, .motivation-card, .recommend-card{ grid-column: span 1; }
 }
 
 @media (max-width: 900px){
